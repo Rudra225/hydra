@@ -1,7 +1,19 @@
-# Hydra Engine
+<div align="center">
 
-> **High-Frequency Execution & Resilience Dashboard**  
-> *Architected by Sudarshan Singh Rathore (Finance & Analytics)*
+# 🐉 Hydra Arbitrage Engine
+
+**High-Frequency Execution & Resilience Dashboard**
+
+<img src="https://img.shields.io/badge/Frontend-React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+<img src="https://img.shields.io/badge/Backend-Python_AsyncIO-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/RealTime-WebSockets-000000?style=for-the-badge&logo=socket.io&logoColor=white" />
+
+<br/>
+
+*(Insert a screenshot or GIF of your dashboard here. To do this, drag and drop an image into this README while editing on GitHub!)*
+
+</div>
 
 ---
 
@@ -41,6 +53,61 @@ The Hydra Engine is a low-latency monitoring and execution pipeline designed to 
 
 ---
 
+## ⚡ Core Capabilities (High-Level Overview)
+
+### 1. Multi-Exchange Consensus Validation
+To prevent phantom signal execution during flash crashes or API anomalies, incoming data streams undergo rigorous validation:
+* **Dynamic Outlier Filtering:** Detects and isolates anomalous price ticks relative to global consensus.
+* **Trend & Momentum Anchoring:** Uses advanced moving average models to separate genuine macro volatility from localized exchange noise.
+* **Stateful Recovery Protocols:** Employs a strict validation queue for exchanges attempting to reconnect after an outage, ensuring data stability before reintegration.
+
+### 2. Execution Physics & Realistic Market Simulation
+Moving beyond naive top-of-book models, the engine accounts for real-world execution barriers:
+* **Depth-Aware Slippage:** Calculates effective pricing across dynamic volume tiers, rejecting signals that lack sufficient order book depth.
+* **Latency-Adjusted Execution:** Simulates variable network routing delays. If profitable spreads evaporate during the simulated latency window, the trade is safely aborted.
+* **Net-Fee Thresholds:** Evaluates viability strictly on post-fee margins.
+
+---
+
+## 📁 Repository Structure
+
+This showcase repository contains the presentation layer of the Hydra architecture:
+
+```text
+hydra/
+├── frontend/                  # React 19 / Vite Dashboard Application
+│   ├── public/                # Static assets and icons
+│   ├── src/                   # React components and styling
+│   │   ├── App.jsx            # Main dashboard grid and WebSocket listeners
+│   │   ├── App.css            # Custom UI styling (Bloomberg Terminal aesthetic)
+│   │   └── main.jsx           # React entry point
+│   ├── package.json           # Frontend dependencies
+│   └── vite.config.js         # Build tooling
+└── README.md                  # System architecture documentation
+```
+
+---
+
+## 🚀 Running the Dashboard Locally
+
+If you want to spin up the UI to see the frontend architecture:
+
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd frontend
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+*(Note: Without the proprietary Python backend running locally, the dashboard will display the UI framework but will not populate live WebSocket data).*
+
+---
+
 ## 🔒 Intellectual Property & Repository Scope
 
 > [!IMPORTANT]
@@ -51,16 +118,8 @@ The Hydra Engine is a low-latency monitoring and execution pipeline designed to 
 
 ---
 
-## 💻 Tech Stack
-
-* **Frontend UI (Included here):** React 19, Vite, Vanilla CSS Design System, WebSockets
-* **Backend Pipeline (Private):** Python (AsyncIO, WebSockets, NumPy, SQLite WAL Mode)
-* **Resilience Mechanisms:** Chaos Engineering, Web3 Oracle Fallbacks, Custom Security Middleware
-
----
-
 ## 👤 Author
 
 **Sudarshan Singh Rathore**  
-*BBA Finance & Analytics Candidate*  
+*Finance & Analytics | Product Architect*  
 *Specializing in FinTech Architecture & Quantitative Logic*
