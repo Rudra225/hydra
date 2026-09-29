@@ -11,7 +11,8 @@
 
 <br/>
 
-*(Insert a screenshot or GIF of your dashboard here. To do this, drag and drop an image into this README while editing on GitHub!)*
+<img width="1080" height="480" alt="hydra image" src="https://github.com/user-attachments/assets/f4bbe9b2-924c-412a-9cc6-93eadcd0e6c8" />
+
 
 </div>
 
