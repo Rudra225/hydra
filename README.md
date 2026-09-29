@@ -53,31 +53,29 @@ Hydra Arbitrage Engine is a low-latency, multi-strategy quantitative execution a
 
 ---
 
-## ⚡ Core Technical Pillars
+## ⚡ Core Capabilities (High-Level Overview)
 
-### 1. Robust Multi-Exchange Consensus Gauntlet
-To prevent phantom signal execution during flash crashes or API anomalies, every tick undergoes validation before entering the strategy engine:
-* **Single-Tick Bound Check:** Rejects instantaneous moves exceeding reasonable boundaries.
-* **Cluster Outlier Filter:** Flags deviations from the inter-exchange median.
-* **Rolling Trend Anchor:** Maintains a Volume-Weighted Exponential Moving Average to separate genuine macro momentum from isolated feed noise.
-* **3-Tick Probationary Recovery:** Isolated or disconnected feeds must deliver verified, agreeing updates before re-entering active consensus.
+### 1. Multi-Exchange Consensus Validation
+To prevent phantom signal execution during flash crashes or API anomalies, incoming data streams undergo rigorous validation:
+* **Dynamic Outlier Filtering:** Detects and isolates anomalous price ticks relative to global consensus.
+* **Trend & Momentum Anchoring:** Uses advanced moving average models to separate genuine macro volatility from localized exchange noise.
+* **Stateful Recovery Protocols:** Employs a strict validation queue for exchanges attempting to reconnect after an outage, ensuring data stability before reintegration.
 
-### 2. Execution Physics & Realistic Paper Trading
-Unlike naive screeners that assume infinite liquidity at top-of-book prices:
-* **L2 Order Book Slippage:** Calculates effective Volume-Weighted Average Price (VWAP) across volume tiers ($1,000, $10,000, $50,000, $100,000).
-* **Latency Simulation:** Imposes an artificial execution delay to simulate real-world order routing time. If liquidity evaporates before execution, the trade is automatically aborted.
-* **Fee-Netted Thresholds:** Enforces strict minimum net profit barriers after factoring in taker fees.
+### 2. Execution Physics & Realistic Market Simulation
+Moving beyond naive top-of-book models, the engine accounts for real-world execution barriers:
+* **Depth-Aware Slippage:** Calculates effective pricing across dynamic volume tiers, rejecting signals that lack sufficient order book depth.
+* **Latency-Adjusted Execution:** Simulates variable network routing delays. If profitable spreads evaporate during the simulated latency window, the trade is safely aborted.
+* **Net-Fee Thresholds:** Evaluates viability strictly on post-fee margins.
 
 ### 3. Fault-Tolerant Decentralized Fallback
-When centralized exchange feeds degrade or disconnect:
-* Centralized pricing enters a safe **HOLD** state to prevent blind order routing.
-* The system transitions to decentralized oracles (Pyth Network & Uniswap V3 on-chain pools) to maintain market awareness.
+Designed to survive catastrophic centralized exchange (CEX) failures:
+* Implements an automated fail-safe state to prevent blind execution during network blackouts.
+* Seamlessly pivots to decentralized Web3 oracle networks to maintain market awareness and pricing continuity.
 
 ### 4. Chaos Engineering & Security Toolkit
-Built-in UDP-controlled fault injection suite for resilience verification:
-* **Spoof Testing:** Simulates malicious price manipulations.
-* **Network Doomsday:** Simulates multi-exchange blackouts to verify recovery probation.
-* **Enterprise Security Shield:** Token-bucket rate limiting and payload validation on WebSocket endpoints.
+Built-in resilience verification suite:
+* **Stress Testing:** Simulates malicious price manipulation and data drops.
+* **Security Middleware:** Enforces robust rate limiting and payload validation against the WebSocket infrastructure.
 
 ---
 
