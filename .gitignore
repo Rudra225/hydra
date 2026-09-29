@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# OS / IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Backend Sensitive Core
+kitchen.py
+validation.py
+paper_trader.py
+triangular.py
+regional.py
+statistical.py
+shared_store.py
+chaos_controller.py
+red_team_hacker.py
+*.bat
