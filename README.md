@@ -89,22 +89,28 @@ hydra/
 
 ---
 
-## 🚀 Running the Dashboard Locally
+## 🚀 Getting Started (UI Demo)
 
-If you want to spin up the UI to see the frontend architecture:
+To run the frontend UI locally on your machine:
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Rudra225/hydra.git
+cd hydra/frontend
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser to view the executive dashboard.
+
 *(Note: Without the proprietary Python backend running locally, the dashboard will display the UI framework but will not populate live WebSocket data).*
 
 ---
